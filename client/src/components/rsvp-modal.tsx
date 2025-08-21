@@ -35,9 +35,9 @@ export default function RsvpModal({ event, isOpen, onClose, currentRsvp }: RsvpM
         title: "RSVP Updated!",
         description: `Your response has been saved for ${event.title}.`,
       });
-      queryClient.invalidateQueries({ queryKey: ["/api/rsvp", user?.id || "", event?.id] });
-      queryClient.invalidateQueries({ queryKey: ["/api/events", event?.id, "rsvps"] });
-      queryClient.invalidateQueries({ queryKey: ["/api/users", user?.id || "", "rsvps"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/rsvp", (user as any)?.id || "", event.id] });
+      queryClient.invalidateQueries({ queryKey: ["/api/events", event.id, "rsvps"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/users", (user as any)?.id || "", "rsvps"] });
       onClose();
     },
     onError: (error) => {
