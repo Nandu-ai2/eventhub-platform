@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "buildCommand": "vite build",
-  "outputDirectory": "dist/public",
   "builds": [
     {
       "src": "server/index.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**"]
+      }
     }
   ],
   "routes": [
@@ -17,5 +18,7 @@
       "src": "/(.*)",
       "dest": "/server/index.ts"
     }
-  ]
+  ],
+  "installCommand": "npm install",
+  "buildCommand": "./build.sh"
 }
