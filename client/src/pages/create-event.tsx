@@ -191,7 +191,7 @@ export default function CreateEvent() {
                   <Button 
                     type="button" 
                     variant="outline"
-                    onClick={() => setLocation("/dashboard")}
+                    onClick={() => setLocation("/events")}
                     data-testid="button-cancel"
                   >
                     Cancel
